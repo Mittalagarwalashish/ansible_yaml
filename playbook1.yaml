@@ -1,0 +1,10 @@
+---
+- name: ashish_mittal
+  hosts: webserver
+  become: true
+
+
+  tasks:
+  - name: ashish1_mittal1
+    command: date
+  

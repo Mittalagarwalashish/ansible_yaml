@@ -1,0 +1,24 @@
+---
+- name: ashish
+  hosts: webserver
+  become: true
+  tasks:
+  - name: ashish1
+    yum:
+     name: nginx
+     state: latest
+    register: o
+
+  - name: print o 
+    debug:
+        var: o
+  
+  - name: ashish2    
+    service:
+     name: nginx
+     state: started
+    register: error
+
+  - name: print error
+    debug:
+            var: error

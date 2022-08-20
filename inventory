@@ -1,0 +1,13 @@
+[webserver]
+172.31.44.17   ansible_ssh_private_key_file=/home/ec2-user/adi.pem  state=latest service_status=started
+
+[dbserver]
+172.31.35.172  ansible_ssh_private_key_file=/home/ec2-user/adi.pem  ansible_user=ubuntu
+
+[webserver:vars]
+x=httpd
+
+[server:children]
+webserver
+dbserver
+

@@ -1,0 +1,9 @@
+---
+ - name: ashish2
+   hosts: webserver
+   become: true
+   tasks: 
+    - name: ensure nano is there
+      yum :
+        name: nano
+        state: latest 

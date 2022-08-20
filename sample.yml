@@ -1,0 +1,26 @@
+---
+ - name: connection
+   hosts: all
+   tasks:
+         - name: checking connection
+           ping:
+
+ - name: webserver
+   hosts: webserver
+   become: true
+   tasks: 
+         - name: install httpd
+           yum:
+              name: httpd
+              state: present
+
+         - name: copy data
+           copy:
+               src: index.html
+               dest: /var/www/html
+
+         - name: service start
+           service: 
+               name: httpd
+               state: started
+               enabled: yes 
